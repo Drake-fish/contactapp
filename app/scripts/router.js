@@ -6,7 +6,7 @@ import renderHomePage from './Views/renderHomePage';
 import renderContacts from './Views/renderContacts';
 import UserDetails from './Models/UserDetails';
 import Users from './Collections/Users';
-
+let user= new UserDetails();
 const Router= Backbone.Router.extend({
   routes:{
     '':'login',
@@ -15,11 +15,11 @@ const Router= Backbone.Router.extend({
     'contacts': 'contacts'
   },
   login(){
-    $('main').append(renderLogin());
+    $('main').append(renderLogin(user));
   },
   signup(){
     $('main').empty();
-    $('main').append(renderSignup());
+    $('main').append(renderSignup(user));
   },
   home(){
     $('main').empty();

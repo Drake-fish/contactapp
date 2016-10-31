@@ -1,14 +1,14 @@
 import $ from 'jquery';
 import User from '../Models/UserDetails';
-function renderSignup(){
+function renderSignup(user){
 const main=$('main');
 
-let user = new User();
 
+
+let mainContainer=$('main');
 
 let form =$(`
 <form class="sign-up">
-<input type="text" name="name", placeholder="Name" value="">
 <input type="text" name="email", placeholder="Email" value="">
 <input type="text" name="password", placeholder="Password" value="">
 <input type="submit" name="submit", value="Sign Up">
@@ -22,6 +22,7 @@ let form =$(`
     user.userRegister(email,password);
     console.log('form submitted');
   });
+  main.append(form);
 }
 
 export default renderSignup;
