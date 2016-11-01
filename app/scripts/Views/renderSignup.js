@@ -1,32 +1,37 @@
 import $ from 'jquery';
-import User from '../Models/UserDetails';
-function renderSignup(user){
+function renderSignup(session){
 const main=$('main');
 
 
 
 let mainContainer=$('main');
-
+let loginPage=$(`
+<span>Already have an account?<a href=#>Login here!</a></span>
+  `);
 let form =$(`
 <form class="sign-up">
-<input type="text" name="name", placeholder="Name" value="">
-<input type="text" name="email", placeholder="Email" value="">
-<input type="text" name="password", placeholder="Password" value="">
+<input type="email" name="email", placeholder="Email" value="">
+<input type="password" name="password", placeholder="Password" value="">
+<input type="password" name="confirmPw", placeholder="Confirm Password" value="">
 <input type="submit" name="submit", value="Sign Up">
 </form>
   `);
 
   form.on('submit',(e)=>{
     e.preventDefault();
-    let name=$(form).find('input[name="name"]').val();
     let email= $(form).find('input[name="email"]').val();
     let password= $(form).find('input[name="password"]').val();
-    user.userRegister(email,password,name);
+    let passwordConfirm=$(form).find('input[name="confirmPw"]').val();
+    if(session.validatePassword(password,passwordConfirm)){
+    session.userRegister(email,password);
     console.log('form submitted');
     alert("your account has been created!");
-    location.hash="";
+  }else{
+    alert('your passwords do not match!');
+  }
   });
-  main.append(form);
+  form.append(loginPage);
+  return form;
 }
 
 export default renderSignup;
