@@ -4,9 +4,6 @@ import secret from '../secret';
 
 export default Backbone.Model.extend({
   idAttribute:'_id',
-  name:'name',
-  email:'email',
-  contacts:[],
 userRegister(email,password){
   this.save(
     {email,password,name},
@@ -50,31 +47,28 @@ userLogin(login,password){
     }
   );
 },
-saveContact(firstName,lastName,nickname,address,phonenumber){
-  this.save(
-    {fistName,
-    lastName,
-    nickname,
-    address,
-    phonenumber},
-    {
-      url:'https://api.backendless.com/v1/data/contacts',
-      headers: {
-        'application-id':'617D9729-0F09-B7B7-FF0F-77CC3945FD00',
-        'secret-key': secret,
-        'application-type':'REST',
-        'Content-Type':'application/json'
-      },
-
-      success:()=>{
-        console.log('success');
-      },
-      error:()=>{
-        console.log('did not work');
+addContact(firstName,lastName,nickName,address,phoneNumber) {
+    this.save(
+      {firstName,lastName,nickName,address,phoneNumber},
+      {
+        url: 'https://api.backendless.com/v1/data/contacts',
+        headers: {
+          'application-id': '617D9729-0F09-B7B7-FF0F-77CC3945FD00',
+          'secret-key': secret,
+          'application-type': 'REST',
+          'Content-Type': 'application/json'
+        },
+        success: (response) => {
+          console.log('Added');
+          console.log(response);
+        },
+        error: (response) => {
+          console.log('Not posted');
+          console.log(response);
+        }
       }
-    }
-  );
-}
+    );
+  }
 });
 
 //   logout(){}

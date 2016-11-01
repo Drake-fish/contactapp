@@ -5,7 +5,7 @@ function renderHomePage(user){
   let main=$('main');
   let form =$(`
   <form class="new-contact">
-  <input type="text" name="firstName", placeholder="First Name", value="">
+  <input type="text" name="firstname", placeholder="First Name", value="">
   <input type="text" name="lastname", placeholder="Last Name", value="">
   <input type="text" name="nickname", placeholder="Nickname", value="NA">
   <input type="text" name="address", placeholder="Address", value="">
@@ -16,12 +16,12 @@ function renderHomePage(user){
 
     form.on('submit',(e)=>{
       e.preventDefault();
-      let firstName=form.find('input[name="firstName"]').val();
+      let firstName=form.find('input[name="firstname"]').val();
       let lastName=form.find('input[name="lastname"]').val();
-      let nickname=form.find('input[name="nickname"]').val();
+      let nickName=form.find('input[name="nickname"]').val();
       let address=form.find('input[name="address"]').val();
-      let phonenumber=form.find('input[name="phonenumber"]').val();
-      user.saveContact(firstName,lastName,nickname,address,phonenumber);
+      let phoneNumber=form.find('input[name="phonenumber"]').val();
+      user.addContact(firstName,lastName,nickName,address,phoneNumber);
     });
     main.append(form);
 }
