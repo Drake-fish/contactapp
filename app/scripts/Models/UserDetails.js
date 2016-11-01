@@ -51,12 +51,12 @@ userLogin(login,password){
   );
 },
 saveContact(firstName,lastName,nickname,address,phonenumber){
-  this.save([
-    {"fistName":firstName},
-    {"lastName":lastName},
-    {"nickname":nickname},
-    {"address":address},
-    {"phonenumber":phonenumber}],
+  this.save(
+    {fistName,
+    lastName,
+    nickname,
+    address,
+    phonenumber},
     {
       url:'https://api.backendless.com/v1/data/contacts',
       headers: {
@@ -65,6 +65,7 @@ saveContact(firstName,lastName,nickname,address,phonenumber){
         'application-type':'REST',
         'Content-Type':'application/json'
       },
+
       success:()=>{
         console.log('success');
       },
