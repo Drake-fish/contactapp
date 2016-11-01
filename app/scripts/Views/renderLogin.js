@@ -1,7 +1,6 @@
 
 
 import $ from 'jquery';
-import User from '../Models/UserDetails';
 function renderLogin(user){
 const main=$('main');
 
@@ -21,6 +20,7 @@ let form =$(`
     let password= $(form).find('input[name="password"]').val();
     user.userLogin(login,password);
     console.log('form submitted');
+
   });
   main.append(form);
   main.append(loginPage);
