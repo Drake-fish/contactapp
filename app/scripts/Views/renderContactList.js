@@ -1,31 +1,33 @@
 import $ from 'jquery';
 import singleContact from './singleContact';
-import wholeContact from './wholeContact';
 
-function renderContactList(contacts){
-  let contactsDiv=$(`
-    <div class="contacts"></div>
+
+function renderContactList(contacts) {
+    let contactsDiv = $(`
+    <div class="contacts">
+      <h1 class="contact-title">Your Contacts</h1>
+    </div>
     `);
-  
-  let contactsList=$(`
-  <ul></ul>
+
+    let contactsList = $(`
+  <ul>
+  </ul>
     `);
     contactsList.empty();
-    contacts.forEach((contact,i,arr)=>{
-      contactsList.append(singleContact(contact));
+    contacts.forEach((contact, i, arr) => {
+        contactsList.append(singleContact(contact));
 
 
     });
-contacts.on('update',()=>{
-  contactsList.empty();
-  contacts.forEach((contact,i,arr)=>{
-    contactsList.append(singleContact(contact));
-  });
-});
+    contacts.on('update', () => {
+        contactsList.empty();
+        contacts.forEach((contact, i, arr) => {
+            contactsList.append(singleContact(contact));
+        });
+    });
 
-contactsDiv.append(contactsList);
-$('main').append(contactsDiv);
-return contactsList;
+    contactsDiv.append(contactsList);
+    return contactsDiv;
 }
 
 export default renderContactList;

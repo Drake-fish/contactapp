@@ -3,11 +3,11 @@ import $ from 'jquery';
 import secret from '../secret';
 
 export default Backbone.Model.extend({
-  defaults:{
-    firstName:'',
-    lastName:'',
-    nickName:'',
-    address:'',
-    phoneNumber:''
-  }
+    defaults: {
+        firstName: '',
+        lastName: '',
+        nickName: '',
+        address: '',
+        phoneNumber: ''
+    }
 });
