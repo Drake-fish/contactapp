@@ -61,7 +61,8 @@ export default Backbone.Model.extend({
             }
         });
     }
-});
+  });
+
 
 //   logout(){}
 // });

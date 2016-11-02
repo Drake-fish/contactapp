@@ -2,13 +2,12 @@ import $ from 'jquery';
 import singleContact from './singleContact';
 
 
-function renderContactList(contacts) {
+function renderContactList(contacts,session) {
     let contactsDiv = $(`
     <div class="contacts">
       <h1 class="contact-title">Your Contacts</h1>
     </div>
     `);
-
     let contactsList = $(`
   <ul>
   </ul>

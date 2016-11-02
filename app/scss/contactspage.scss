@@ -24,6 +24,10 @@ li{
   margin-right:1rem;
   width:25%;
   display:inline-block;
+  transition:all .3s;
+  &:hover{
+    transform:scale(1.1);
+  }
   img{
     width:5rem;
   }
@@ -31,5 +35,7 @@ li{
   float:right;
   color:white;
   }
-
+.fa{
+  margin-right:5px;
+}
 }

@@ -7,7 +7,7 @@ export default Backbone.Model.extend({
         firstName: '',
         lastName: '',
         nickName: '',
-        address: '',
+        emailAddress: '',
         phoneNumber: ''
     }
 });
